@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='logo.ico') }}"> -->
+    <title>YPF</title>
+</head>
+<body>
+    <h1>Cargar información:</h1>
+    <form action="/" method="post">
+        <input type="text" name="jobname" placeholder="jobname" required>
+        <input type="text" name="changeid" placeholder="changeid" required>
+        <input type="text" name="gruposn" placeholder="gruposn">
+        <input type="email" name="correo1" placeholder="correo1">
+        <input type="email" name="correo2" placeholder="correo2">
+        <input type="email" name="correo3" placeholder="correo3">
+        <button type="submit">Guardar</button>
+    </form>
+
+    <br>
+
+    <h1>Busquedas:</h1>
+    <form action="/" method="get">
+        <input type="text" name="jobname" placeholder="Buscar por Job">
+        <input type="text" name="changeid" placeholder="Buscar por CHG">
+        <input type="text" name="gruposn" placeholder="Buscar por SN">
+        <input type="text" name="correo1" placeholder="Buscar por correo1">
+        <input type="text" name="correo2" placeholder="Buscar por correo2">
+        <input type="text" name="correo3" placeholder="Buscar por correo3">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <br>
+
+<table>
+    <tr>
+        <th>JobName</th>
+        <th>ChangeID</th>
+        <th>GrupoSN</th>
+        <th>Correo1</th>
+        <th>Correo2</th>
+        <th>Correo3</th>
+    </tr>
+
+    {% for registros in resultado %}
+        <tr>
+            <td>{{ registros[0] }}</td>
+            <td>{{ registros[1] }}</td>
+            <td>{{ registros[2] }}</td>
+            <td>{{ registros[3] }}</td>
+            <td>{{ registros[4] }}</td>
+            <td>{{ registros[5] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
